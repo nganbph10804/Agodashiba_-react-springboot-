@@ -1,4 +1,4 @@
-import { IconButton, TableHead} from '@material-ui/core';
+import { IconButton, TableHead } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -6,19 +6,29 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableRow from '@material-ui/core/TableRow';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 import React, { useEffect, useState } from 'react';
 import UserSservice from '../../Service/UserSservice';
 import AddUser from './AddUser';
-import EditIcon from '@material-ui/icons/Edit';
-import DeleteIcon from '@material-ui/icons/Delete'
-import UpdateUser from './UpdateUser'
+import UpdateUser from './UpdateUser';
 
 // UseStyle
 const useStyles2 = makeStyles({
+  root :{
+      marginTop: '70px'
+  },
+
   table: {
     minWidth: 500,
-    marginTop: 50
+   
   },
+  button :{
+    margin: 0,
+    padding: 0
+  },
+  
+  
 });
 
 // Table Head
@@ -31,6 +41,11 @@ const columns = [
     label: 'Is Admin',
   },
   {
+    id:'img'
+    ,label: 'Image'
+  }
+  ,
+  {
     id: 'action', label: 'Action', minWidth: ' 190px'
   }
 
@@ -39,6 +54,8 @@ const columns = [
 
 
 const UserManage = () => {
+
+
   const [lstUser, setLstUser] = useState([]);
   const [open, setOpen] = React.useState(false);
   const [openUpdate, setOpenUpdate] = useState(false);
@@ -77,6 +94,11 @@ const UserManage = () => {
       .catch(err => {
         console.log(err);
       })
+  
+      return ()=>{
+        setLstUser([]);
+      }
+
   }, [])
 
   const addUserConfig = {
@@ -101,8 +123,9 @@ const UserManage = () => {
 
 
 
-    <TableContainer component={Paper}>
-      <AddUser {...addUserConfig} />
+    <TableContainer className={classes.root} component={Paper}>
+     
+      <AddUser className={classes.button} {...addUserConfig} />
       <UpdateUser {...configUpdateUser} />
       <Table className={classes.table} aria-label="custom pagination table">
         <TableHead>
@@ -133,6 +156,9 @@ const UserManage = () => {
               </TableCell>
               <TableCell >
                 {row.isAdmin ? 'Yes' : 'No'}
+              </TableCell>
+              <TableCell  >
+                {row.img?<img alt='userImage' style={{height:'80px',width:'200px'}} src={`http://localhost:8080//${row.img}`}/>:'null'}
               </TableCell>
               <TableCell>
                 <IconButton onClick={()=>onClickUpdate(row)}>

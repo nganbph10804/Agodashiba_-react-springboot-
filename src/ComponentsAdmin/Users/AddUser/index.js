@@ -27,10 +27,7 @@ const AddUser = ({open,setOpen,setLstUser,lstUser}) => {
   const mailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   const onCreateUser = ()=>{
 
-    if(email==="" || phone==="" || username==="" || password===""){
-        window.alert('Empty field! Try again!');
-        return;
-    }else if(!phone.match(phoneRegex)|| !email.match(mailRegex)){
+    if(!phone.match(phoneRegex)|| !email.match(mailRegex)){
         window.alert('emai or phone does not validate!');
         return;
     }else{
@@ -50,7 +47,12 @@ const AddUser = ({open,setOpen,setLstUser,lstUser}) => {
 
        })
        .catch(err=>{
-           window.alert(err.message);
+        if(err.message==="Request failed with status code 500"){
+          window.alert('Email or Phone already exist');
+        }
+        
+        if(err.message==="Request failed with status code 400"){
+          window.alert('Password at least 6 character');}
        })
     }
     

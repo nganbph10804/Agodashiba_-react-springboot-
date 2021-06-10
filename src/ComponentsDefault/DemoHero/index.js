@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Button from '../CustomForm/Button';
 import Typography from '../CustomForm/Typography';
 import ProductHeroLayout from './ProductHeroLayout';
+import {Link} from 'react-router-dom'
 
 const backgroundImage =
   'https://images.unsplash.com/photo-1534854638093-bada1813ca19?auto=format&fit=crop&w=1400&q=80';
@@ -48,8 +49,8 @@ function ProductHero(props) {
         variant="contained"
         size="large"
         className={classes.button}
-        component="a"
-        href="/premium-themes/onepirate/sign-up/"
+        component={Link}
+       to='/signup'
       >
         Register
       </Button>

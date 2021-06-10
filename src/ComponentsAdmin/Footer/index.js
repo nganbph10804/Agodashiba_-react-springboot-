@@ -1,13 +1,13 @@
 import { CssBaseline, Typography,Container, makeStyles } from '@material-ui/core'
 import React from 'react'
-import { Link } from 'react-router-dom';
+
 function Copyright() {
     return (
       <Typography variant="body2" color="textSecondary">
         {'Copyright © '}
-        <Link color="inherit" href="https://fb.com/Ngafko.lacaf">
+        <a color="inherit" href="https://fb.com/Ngafko.lacaf">
           Contact me
-        </Link>{' '}
+        </a>{' '}
         {new Date().getFullYear()}
         {'.'}
       </Typography>
