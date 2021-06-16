@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
     title: {
       flexGrow: 1,
         textTransform: 'uppercase',
-        marginLeft: '110px',
         fontWeight: 500,
         '&:hover' :{
           cursor:"pointer"

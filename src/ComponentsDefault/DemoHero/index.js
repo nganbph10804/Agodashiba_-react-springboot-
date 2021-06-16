@@ -11,13 +11,17 @@ const backgroundImage =
 
 const styles = (theme) => ({
   background: {
+    display:'inline-block',
     marginTop:'62px',
     backgroundImage: `url(${backgroundImage})`,
     backgroundColor: '#7fc7d9', // Average color of the background image.
     backgroundPosition: 'center',
   },
   button: {
+    
     minWidth: 200,
+    
+
   },
   h5: {
     marginBottom: theme.spacing(4),
@@ -29,6 +33,10 @@ const styles = (theme) => ({
   more: {
     marginTop: theme.spacing(2),
   },
+  buttonGroup:{
+    display:'inline',
+    padding:'0 20px'
+  }
 });
 
 function ProductHero(props) {
@@ -41,9 +49,19 @@ function ProductHero(props) {
       <Typography color="inherit" align="center" variant="h2" marked="center">
         Đặt phòng ngay
       </Typography>
+     
       <Typography color="inherit" align="center" variant="h5" className={classes.h5}>
         Giảm giá lên đến 70% cho các ngày chủ nhật.
       </Typography>
+      <div className={classes.buttonGroup}>
+      <Button
+        color="primary"
+        variant="contained"
+        size="large"
+        className={classes.button}
+        component={Link}
+       to='/search'
+      > ĐẶT PHÒNG </Button>
       <Button
         color="secondary"
         variant="contained"
@@ -52,8 +70,9 @@ function ProductHero(props) {
         component={Link}
        to='/signup'
       >
-        Register
+        Đăng kí
       </Button>
+      </div>
       <Typography variant="body2" color="inherit" className={classes.more}>
         Discover the experience
       </Typography>

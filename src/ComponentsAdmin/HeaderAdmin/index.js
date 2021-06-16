@@ -80,7 +80,7 @@ const HeaderAdmin = ({user,setUser}) => {
           <ListItemIcon><HotelIcon /> </ListItemIcon>
           <ListItemText primary='Room Management' />
         </ListItem>
-        <ListItem className={classes.sidebarItem} button component={Link} to='/userManagement' onClick={handleClose} >
+        <ListItem className={classes.sidebarItem} button component={Link} to='/billManagement' onClick={handleClose} >
           <ListItemIcon><ReceiptIcon /> </ListItemIcon>
           <ListItemText primary='Bill Management' />
         </ListItem>

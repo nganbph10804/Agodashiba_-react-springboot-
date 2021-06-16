@@ -120,11 +120,13 @@ const RoomHotel = () => {
          });
        })
        .then(
-        RoomService.updateRoomTotal(filterType)
+        setTimeout(()=>{
+          RoomService.updateRoomTotal(filterType)
         .then()
         .catch(err=>{
           console.log(err.message);
         })
+      },3000)
       )
       .catch(err=>{console.log(err)})
      }

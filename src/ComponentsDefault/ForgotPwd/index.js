@@ -45,12 +45,12 @@ export default function ForgotPwd() {
     UserSservice.getUserForRecover(email)
     .then((res)=>{
       if(res.data===""){
-          window.alert('email not found! please try again!')
+          window.alert(`Không tìm thấy Email của bạn trong hệ thống \n Xin vui lòng thử lại!`)
           return;
       }
       UserSservice.sendMailForRecovery(email,res.data.passwords)
       .then(
-        window.alert('your password is send to: '+email)
+        window.alert(`Mật khẩu của bạn đã được gửi đến:  ${email} \n Hãy kiểm tra email của bạn!`)
       )
       .catch(err=>{
         console.log(err); 
@@ -75,7 +75,7 @@ export default function ForgotPwd() {
          <CachedIcon/>
         </Avatar>
         <Typography component="h1" variant="h5">
-          Forgot Password
+         Quên Mật Khẩu
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
@@ -99,7 +99,7 @@ export default function ForgotPwd() {
             color="primary"
             className={classes.submit}
           >
-            Submit
+            Xác nhận
           </Button>
          
         </form>

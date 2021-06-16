@@ -50,16 +50,16 @@ export default function SignUp({user,setUser}) {
   const mailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       e.preventDefault();
       if(!phone.match(phoneRegex)){
-        window.alert('incorrect phone format!')
+        window.alert(`Số điện thoại không đúng!\n Xin vui lòng thử lại!`)
         return;
       }
       if(!email.match(mailRegex)){
-        window.alert('incorrect email format!')
+        window.alert(`Email không đúng!\n Xin vui lòng thử lại!`)
         return;
       }
 
       if(password !== confirmPassword){
-        window.alert('password not match!');
+        window.alert(`Mật khẩu không khớp!\n Vui lòng nhập lại mật khẩu`);
         return;
       }
       let users= {
@@ -77,11 +77,11 @@ export default function SignUp({user,setUser}) {
        })
        .catch(err=>{
          if(err.message==="Request failed with status code 500"){
-           window.alert('Email or Phone already exist');
+           window.alert(`Email hoặc số điện thoại đã tồn tại!\n Xin vui lòng thử lại`);
          }
          
          if(err.message==="Request failed with status code 400"){
-           window.alert('Password at least 6 character');}
+           window.alert(`Mật khẩu phải lớn hơn 6 kí tự!`);}
        })
       
   }
@@ -95,7 +95,7 @@ export default function SignUp({user,setUser}) {
           <AssignmentIndIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign up
+          Đăng Kí
         </Typography>
         <form className={classes.form} onSubmit={(e)=>{handleSubmit(e)}}>
           <Grid container spacing={2}>
@@ -107,7 +107,7 @@ export default function SignUp({user,setUser}) {
                 onChange={(e)=>{setUsername(e.target.value)}}
                 fullWidth
                 id="userName"
-                label="User Name"
+                label="Tên đăng nhập"
                 autoFocus
               />
             </Grid>
@@ -118,7 +118,7 @@ export default function SignUp({user,setUser}) {
                 fullWidth
                 onChange={(e)=>{setPhone(e.target.value)}}
                 id="phone"
-                label="Phone number"
+                label="Số điện thoại"
                 name="phone"
                 autoComplete="phone"
               />
@@ -130,7 +130,7 @@ export default function SignUp({user,setUser}) {
                 fullWidth
                 onChange={(e)=>{setEmail(e.target.value)}}
                 id="email"
-                label="Email Address"
+                label="Email"
                 name="email"
                 autoComplete="email"
               />
@@ -142,7 +142,7 @@ export default function SignUp({user,setUser}) {
                 fullWidth
                 onChange={(e)=>setPassword(e.target.value)}
                 name="password"
-                label="Password"
+                label="Mật khẩu"
                 type="password"
                 id="password"
                 autoComplete="current-password"
@@ -155,7 +155,7 @@ export default function SignUp({user,setUser}) {
                 fullWidth
                 onChange={(e)=>{setConfirmPassword(e.target.value)}}
                 name="confirmPassword"
-                label="Confirm Password"
+                label="Nhập lại mật khẩu"
                 type="password"  
               />
             </Grid>         
@@ -167,12 +167,12 @@ export default function SignUp({user,setUser}) {
             color="primary"
             className={classes.submit}
           >
-            Sign Up
+           Đăng kí
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
               <Link to="/signin" variant="body2">
-                Already have an account? Sign in
+                Bạn đã có tài khoản? Đăng nhập
               </Link>
             </Grid>
           </Grid>

@@ -148,10 +148,7 @@ const HotelManage = () => {
                 {row.room_total}
               </TableCell>
               <TableCell  >
-                {row.phone}
-              </TableCell>
-              <TableCell  >
-                {row.img}
+              {row.img}
               </TableCell>
               <TableCell>
                 <IconButton onClick={()=>onClickUpdate(row)}>

@@ -17,9 +17,9 @@ class HotelService{
         return axios.get(HOTEL_API_BASE_URL+'/'+phone);
    }
   
-    // updateImage(phone,data){
-    //     return axios.post(USER_API_BASE_URL+'/upload/'+phone,data)
-    // }
+    getHotelById(id){
+        return axios.get(HOTEL_API_BASE_URL+"/"+id);
+    }
    updateHotel(hotel,id){
        return axios.put(HOTEL_API_BASE_URL+'/'+id,hotel);
    }

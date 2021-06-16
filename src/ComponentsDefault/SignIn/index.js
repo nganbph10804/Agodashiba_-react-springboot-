@@ -58,10 +58,10 @@ export default function SignInSide({user,setUser}) {
       .then((res)=>{
             if(res.data!==""){
               setUser(res.data);
-             window.alert('login success!');
+             window.alert(`Đăng nhập thành công!`);
                history.push('/');
             }else{
-              window.alert('email or password is invalid!')
+              window.alert('Email hoặc mật khẩu của bạn không chính xác\n Vui lòng thử lại')
               return;
             }
             
@@ -85,7 +85,7 @@ export default function SignInSide({user,setUser}) {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Đăng nhập
           </Typography>
           <form onSubmit={(e)=>handleSubmit(e)} className={classes.form} >
             <TextField
@@ -95,7 +95,7 @@ export default function SignInSide({user,setUser}) {
               fullWidth
               onChange={(e)=>setEmail(e.target.value)}
               id="email"
-              label="Email Address"
+              label="Email"
               name="email"
               autoComplete="email"
               autoFocus
@@ -107,7 +107,7 @@ export default function SignInSide({user,setUser}) {
               fullWidth
               onChange={(e)=>setPassword(e.target.value)}
               name="password"
-              label="Password"
+              label="Mật khẩu"
               type="password"
               id="password"
               autoComplete="current-password"
@@ -120,17 +120,17 @@ export default function SignInSide({user,setUser}) {
               color="primary"
               className={classes.submit}
             >
-              Sign In
+             Đăng nhập
             </Button>
             <Grid container>
               <Grid item xs>
                 <Link to="/recovery" variant="body2">
-                  Forgot password?
+                  Quên mật khẩu?
                 </Link>
               </Grid>
               <Grid item>
                 <Link to="/signup" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                  {"Bạn chưa có tài khoản? Đăng Kí"}
                 </Link>
               </Grid>
             </Grid>

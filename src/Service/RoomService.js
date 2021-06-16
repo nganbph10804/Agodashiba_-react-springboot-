@@ -25,7 +25,13 @@ class RoomService{
         return axios.post(ROOMTYPE_API_BASE_URL,roomtype);
     }
     updateRoomTotal(id){
-        return axios.put("http://localhost:8080/api/v1/update-total"+"/"+id);
+        return axios.put("http://localhost:8080/api/v1/update-total/"+id);
+    }
+    updateRoomRented(id){
+        return axios.put("http://localhost:8080/api/v1/update-rented/"+id);
+    }
+    updateRoomRestore(id){
+        return axios.put("http://localhost:8080/api/v1/update-restore/"+id);
     }
 
 }
